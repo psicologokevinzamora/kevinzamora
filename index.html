@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kevin L. Zamora Araya — Psicólogo Clínico & Psicoanalista · Los Andes</title>
+<meta name="description" content="Psicólogo Clínico y Psicoanalista en Los Andes. Atención presencial y online para adultos y adolescentes. Ansiedad, depresión, crisis, trauma. Agenda por WhatsApp." />
+<meta name="keywords" content="psicólogo Los Andes, psicoanalista Los Andes, terapia online Chile, psicólogo clínico, ansiedad, depresión" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+--ink: #1a1612;
+--paper: #f5f0e8;
+--warm: #e8ddc8;
+--accent: #5c7a6e;
+--accent2: #8b6f47;
+--muted: #7a7268;
+--line: rgba(26,22,18,0.12);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+background: var(--paper);
+color: var(--ink);
+font-family: 'DM Sans', sans-serif;
+font-weight: 300;
+line-height: 1.7;
+overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+content: '';
+position: fixed;
+inset: 0;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+pointer-events: none;
+z-index: 1000;
+opacity: 0.6;
+}
+
+/* ── HEADER ── */
+header {
+min-height: 100vh;
+display: grid;
+grid-template-rows: auto 1fr auto;
+padding: clamp(2rem, 5vw, 4rem);
+position: relative;
+overflow: hidden;
+}
+
+header::after {
+content: '';
+position: absolute;
+bottom: -120px;
+right: -80px;
+width: 520px;
+height: 520px;
+border-radius: 50%;
+border: 1px solid var(--line);
+pointer-events: none;
+}
+header::before {
+content: '';
+position: absolute;
+bottom: -60px;
+right: -20px;
+width: 320px;
+height: 320px;
+border-radius: 50%;
+border: 1px solid var(--line);
+pointer-events: none;
+z-index: 0;
+}
+
+.nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+opacity: 0;
+animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.nav-logo {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1rem;
+font-weight: 400;
+letter-spacing: 0.08em;
+color: var(--muted);
+text-transform: uppercase;
+}
+
+.nav-cta {
+font-size: 0.78rem;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--accent);
+text-decoration: none;
+border-bottom: 1px solid var(--accent);
+padding-bottom: 2px;
+transition: color 0.2s, border-color 0.2s;
+}
+.nav-cta:hover { color: var(--ink); border-color: var(--ink); }
+
+.hero {
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 4rem 0 2rem;
+position: relative;
+z-index: 1;
+}
+
+.hero-eyebrow {
+font-size: 0.72rem;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 1.5rem;
+opacity: 0;
+animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-name {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(3.2rem, 8vw, 7rem);
+font-weight: 300;
+line-height: 1.0;
+letter-spacing: -0.01em;
+margin-bottom: 0.2em;
+opacity: 0;
+animation: fadeUp 0.9s 0.3s forwards;
+}
+
+.hero-name em {
+font-style: italic;
+color: var(--accent2);
+}
+
+.hero-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+font-weight: 300;
+font-style: italic;
+color: var(--muted);
+margin-bottom: 2.5rem;
+opacity: 0;
+animation: fadeUp 0.9s 0.4s forwards;
+}
+
+.hero-desc {
+max-width: 540px;
+font-size: clamp(0.92rem, 1.5vw, 1.02rem);
+line-height: 1.8;
+color: var(--muted);
+opacity: 0;
+animation: fadeUp 0.9s 0.5s forwards;
+}
+
+.hero-bottom {
+display: flex;
+align-items: center;
+gap: 2rem;
+padding-top: 2rem;
+opacity: 0;
+animation: fadeUp 0.8s 0.6s forwards;
+flex-wrap: wrap;
+}
+
+.btn-primary {
+display: inline-flex;
+align-items: center;
+gap: 0.6rem;
+background: var(--ink);
+color: var(--paper);
+padding: 0.9rem 1.8rem;
+font-family: 'DM Sans', sans-serif;
+font-size: 0.82rem;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+text-decoration: none;
+transition: background 0.25s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+.btn-secondary {
+font-size: 0.82rem;
+font-weight: 400;
+color: var(--muted);
+text-decoration: none;
+letter-spacing: 0.05em;
+border-bottom: 1px solid var(--line);
+padding-bottom: 2px;
+transition: color 0.2s;
+}
+.btn-secondary:hover { color: var(--ink); }
+
+.scroll-hint {
+font-size: 0.7rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--line);
+writing-mode: vertical-rl;
+align-self: flex-end;
+opacity: 0;
+animation: fadeUp 1s 1s forwards;
+}
+
+/* ── DIVIDER ── */
+.divider {
+height: 1px;
+background: var(--line);
+margin: 0 clamp(2rem, 5vw, 4rem);
+}
+
+/* ── SECTIONS ── */
+section {
+padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 5vw, 4rem);
+}
+
+.section-label {
+font-size: 0.68rem;
+font-weight: 500;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 3rem;
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+.section-label::after {
+content: '';
+flex: 1;
+max-width: 60px;
+height: 1px;
+background: var(--accent);
+}
+
+/* ── SOBRE MÍ ── */
+.about-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 4rem;
+align-items: start;
+}
+
+.about-headline {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(2rem, 4vw, 3rem);
+font-weight: 300;
+line-height: 1.2;
+margin-bottom: 2rem;
+}
+.about-headline em { font-style: italic; color: var(--accent2); }
+
+.about-text p {
+margin-bottom: 1.2rem;
+color: var(--muted);
+font-size: 0.95rem;
+}
+
+.credentials {
+margin-top: 2.5rem;
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+}
+
+.cred-item {
+display: flex;
+align-items: baseline;
+gap: 0.8rem;
+font-size: 0.85rem;
+}
+.cred-dot {
+width: 5px;
+height: 5px;
+background: var(--accent);
+border-radius: 50%;
+flex-shrink: 0;
+margin-top: 0.4em;
+}
+.cred-text { color: var(--muted); }
+.cred-text strong { color: var(--ink); font-weight: 500; }
+
+/* ── ÁREAS ── */
+.areas-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 1px;
+background: var(--line);
+border: 1px solid var(--line);
+}
+
+.area-card {
+background: var(--paper);
+padding: 2rem 1.8rem;
+transition: background 0.25s;
+cursor: default;
+}
+.area-card:hover { background: var(--warm); }
+
+.area-number {
+font-family: 'Cormorant Garamond', serif;
+font-size: 2.5rem;
+font-weight: 300;
+color: var(--line);
+line-height: 1;
+margin-bottom: 1rem;
+}
+
+.area-name {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.3rem;
+font-weight: 400;
+margin-bottom: 0.5rem;
+}
+
+.area-desc {
+font-size: 0.82rem;
+color: var(--muted);
+line-height: 1.6;
+}
+
+/* ── MODALIDADES ── */
+.modalities {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+}
+
+.modality {
+border: 1px solid var(--line);
+padding: 2.5rem;
+position: relative;
+transition: border-color 0.25s;
+}
+.modality:hover { border-color: var(--accent); }
+
+.modality-tag {
+font-size: 0.65rem;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 1rem;
+}
+
+.modality-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.8rem;
+font-weight: 300;
+margin-bottom: 1rem;
+}
+
+.modality-text {
+font-size: 0.88rem;
+color: var(--muted);
+line-height: 1.7;
+}
+
+/* ── QUOTE ── */
+.quote-section {
+background: var(--ink);
+color: var(--paper);
+text-align: center;
+}
+
+.quote-text {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(1.4rem, 3vw, 2.2rem);
+font-weight: 300;
+font-style: italic;
+line-height: 1.5;
+max-width: 700px;
+margin: 0 auto 1.5rem;
+}
+
+.quote-attr {
+font-size: 0.72rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: rgba(245,240,232,0.4);
+}
+
+/* ── CONTACTO ── */
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 4rem;
+align-items: start;
+}
+
+.contact-headline {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(2rem, 4vw, 3rem);
+font-weight: 300;
+line-height: 1.2;
+margin-bottom: 1.5rem;
+}
+.contact-headline em { font-style: italic; color: var(--accent2); }
+
+.contact-sub {
+font-size: 0.92rem;
+color: var(--muted);
+margin-bottom: 2.5rem;
+max-width: 380px;
+}
+
+.contact-items {
+display: flex;
+flex-direction: column;
+gap: 1.2rem;
+}
+
+.contact-item {
+display: flex;
+align-items: flex-start;
+gap: 1rem;
+}
+
+.contact-icon {
+width: 36px;
+height: 36px;
+border: 1px solid var(--line);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+font-size: 0.9rem;
+}
+
+.contact-detail {
+display: flex;
+flex-direction: column;
+}
+.contact-label {
+font-size: 0.65rem;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 0.2rem;
+}
+.contact-value {
+font-size: 0.9rem;
+color: var(--ink);
+}
+.contact-value a {
+color: inherit;
+text-decoration: none;
+border-bottom: 1px solid var(--line);
+transition: border-color 0.2s;
+}
+.contact-value a:hover { border-color: var(--accent); }
+
+.cta-block {
+background: var(--warm);
+padding: 2.5rem;
+border-left: 3px solid var(--accent);
+}
+
+.cta-block p {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.2rem;
+font-style: italic;
+color: var(--ink);
+margin-bottom: 1.5rem;
+line-height: 1.5;
+}
+
+.btn-whatsapp {
+display: inline-flex;
+align-items: center;
+gap: 0.7rem;
+background: var(--accent);
+color: #fff;
+padding: 1rem 2rem;
+font-family: 'DM Sans', sans-serif;
+font-size: 0.82rem;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+text-decoration: none;
+transition: background 0.25s, transform 0.2s;
+width: 100%;
+justify-content: center;
+}
+.btn-whatsapp:hover { background: var(--ink); transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+border-top: 1px solid var(--line);
+padding: 2rem clamp(2rem, 5vw, 4rem);
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+
+.footer-name {
+font-family: 'Cormorant Garamond', serif;
+font-size: 0.9rem;
+color: var(--muted);
+}
+
+.footer-note {
+font-size: 0.72rem;
+color: var(--line);
+letter-spacing: 0.1em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+.about-grid,
+.modalities,
+.contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+.hero-name { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+
+.areas-grid { grid-template-columns: 1fr 1fr; }
+
+.hero-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+.scroll-hint { display: none; }
+}
+
+@media (max-width: 480px) {
+.areas-grid { grid-template-columns: 1fr; }
+}
+
+/* ── RESEÑAS ── */
+.reviews-section {
+background: var(--warm);
+}
+
+.reviews-header {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+margin-bottom: 3rem;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+
+.reviews-headline {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(2rem, 4vw, 3rem);
+font-weight: 300;
+line-height: 1.2;
+}
+.reviews-headline em { font-style: italic; color: var(--accent2); }
+
+.reviews-score {
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+gap: 0.3rem;
+flex-shrink: 0;
+}
+
+.score-number {
+font-family: 'Cormorant Garamond', serif;
+font-size: 3.5rem;
+font-weight: 300;
+line-height: 1;
+color: var(--ink);
+}
+
+.score-stars {
+display: flex;
+gap: 3px;
+}
+
+.score-stars svg {
+width: 14px;
+height: 14px;
+fill: #c8963e;
+}
+
+.score-count {
+font-size: 0.72rem;
+color: var(--muted);
+letter-spacing: 0.1em;
+}
+
+.reviews-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.5rem;
+}
+
+.review-card {
+background: var(--paper);
+padding: 2rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+border-bottom: 2px solid transparent;
+transition: border-color 0.25s, transform 0.25s;
+}
+.review-card:hover {
+border-color: var(--accent);
+transform: translateY(-3px);
+}
+
+.review-stars {
+display: flex;
+gap: 3px;
+}
+.review-stars svg {
+width: 12px;
+height: 12px;
+fill: #c8963e;
+}
+
+.review-text {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.05rem;
+font-style: italic;
+line-height: 1.65;
+color: var(--ink);
+flex: 1;
+}
+
+.review-footer {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+padding-top: 0.8rem;
+border-top: 1px solid var(--line);
+}
+
+.review-avatar {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+background: var(--accent);
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cormorant Garamond', serif;
+font-size: 0.85rem;
+color: white;
+flex-shrink: 0;
+}
+
+.review-meta {
+display: flex;
+flex-direction: column;
+gap: 0.1rem;
+}
+
+.review-name {
+font-size: 0.8rem;
+font-weight: 500;
+color: var(--ink);
+}
+
+.review-source {
+font-size: 0.68rem;
+color: var(--muted);
+letter-spacing: 0.08em;
+}
+
+.reviews-cta {
+margin-top: 2.5rem;
+text-align: center;
+}
+
+.btn-google {
+display: inline-flex;
+align-items: center;
+gap: 0.6rem;
+border: 1px solid var(--ink);
+color: var(--ink);
+padding: 0.85rem 1.8rem;
+font-family: 'DM Sans', sans-serif;
+font-size: 0.78rem;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+text-decoration: none;
+transition: background 0.25s, color 0.25s;
+}
+.btn-google:hover { background: var(--ink); color: var(--paper); }
+
+@media (max-width: 900px) {
+.reviews-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 580px) {
+.reviews-grid { grid-template-columns: 1fr; }
+.reviews-header { flex-direction: column; align-items: flex-start; }
+.reviews-score { align-items: flex-start; }
+}
+```
+
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+
+<header>
+<nav class="nav">
+<span class="nav-logo">Los Andes · Chile</span>
+<a href="https://wa.me/56984328372" class="nav-cta" target="_blank" rel="noopener">Agendar sesión →</a>
+</nav>
+
+```
+<div class="hero">
+<p class="hero-eyebrow">Psicólogo Clínico & Psicoanalista</p>
+<h1 class="hero-name">Kevin <em>L.</em><br>Zamora<br>Araya</h1>
+<p class="hero-title">Escucha profunda. Proceso real.</p>
+<p class="hero-desc">
+Un espacio para trabajar lo que te habita — sin apuro, sin recetas.
+Atención presencial en Los Andes y online para todo Chile.
+</p>
+</div>
+
+<div class="hero-bottom">
+<a href="https://wa.me/56984328372" class="btn-primary" target="_blank" rel="noopener">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.126 1.532 5.862L.054 23.077a.75.75 0 00.917.941l5.404-1.43A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 01-4.964-1.357l-.356-.212-3.694.977.992-3.606-.232-.372A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+Escribir por WhatsApp
+</a>
+<a href="#sobre-mi" class="btn-secondary">Conocer más ↓</a>
+</div>
+```
+
+</header>
+
+<div class="divider"></div>
+
+<!-- ── SOBRE MÍ ── -->
+
+<section id="sobre-mi">
+<p class="section-label reveal">Sobre mí</p>
+<div class="about-grid">
+<div>
+<h2 class="about-headline reveal">Lo que te <em>dificulta</em> tiene raíces más profundas de lo que parece</h2>
+</div>
+<div class="about-text reveal">
+<p>
+Soy psicólogo clínico egresado de la Universidad de Chile con distinción máxima,
+con formación psicoanalítica y más de 700 casos de experiencia clínica en contextos
+públicos y privados.
+</p>
+<p>
+Trabajo desde la convicción de que el sufrimiento psíquico no se resuelve con
+técnicas rápidas. Cada persona trae una historia única que merece ser escuchada
+con profundidad y sin apuro.
+</p>
+<p>
+Atiendo adultos, adolescentes y niños, tanto en consulta presencial en Los Andes
+como de manera online para todo Chile.
+</p>
+
+```
+<div class="credentials">
+<div class="cred-item">
+<div class="cred-dot"></div>
+<span class="cred-text"><strong>Psicólogo Clínico</strong> — Universidad de Chile, distinción máxima</span>
+</div>
+<div class="cred-item">
+<div class="cred-dot"></div>
+<span class="cred-text"><strong>Formación psicoanalítica</strong> — enfoque en escucha y proceso</span>
+</div>
+<div class="cred-item">
+<div class="cred-dot"></div>
+<span class="cred-text"><strong>+700 casos</strong> de experiencia clínica</span>
+</div>
+<div class="cred-item">
+<div class="cred-dot"></div>
+<span class="cred-text"><strong>Arancel diferenciado</strong> — acordado según posibilidades</span>
+</div>
+</div>
+</div>
+</div>
+```
+
+</section>
+
+<div class="divider"></div>
+
+<!-- ── ÁREAS ── -->
+
+<section>
+<p class="section-label reveal">Áreas de atención</p>
+<div class="areas-grid">
+<div class="area-card reveal">
+<div class="area-number">01</div>
+<div class="area-name">Ansiedad</div>
+<div class="area-desc">Rumiación, pánico, tensión constante, preocupación que no cesa.</div>
+</div>
+<div class="area-card reveal">
+<div class="area-number">02</div>
+<div class="area-name">Depresión</div>
+<div class="area-desc">Tristeza profunda, vacío, pérdida de sentido o de ganas.</div>
+</div>
+<div class="area-card reveal">
+<div class="area-number">03</div>
+<div class="area-name">Trauma</div>
+<div class="area-desc">Experiencias difíciles que siguen afectando el presente.</div>
+</div>
+<div class="area-card reveal">
+<div class="area-number">04</div>
+<div class="area-name">Vínculos</div>
+<div class="area-desc">Dificultades relacionales, patrones que se repiten, crisis de pareja o familia.</div>
+</div>
+<div class="area-card reveal">
+<div class="area-number">05</div>
+<div class="area-name">Crisis vitales</div>
+<div class="area-desc">Duelo, cambios de etapa, pérdidas, decisiones que pesan.</div>
+</div>
+<div class="area-card reveal">
+<div class="area-number">06</div>
+<div class="area-name">Malestar difuso</div>
+<div class="area-desc">Algo que molesta sin poder nombrarse del todo. Eso también merece atención.</div>
+</div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── MODALIDADES ── -->
+
+<section>
+<p class="section-label reveal">Modalidades</p>
+<div class="modalities">
+<div class="modality reveal">
+<div class="modality-tag">Presencial</div>
+<div class="modality-title">Los Andes</div>
+<div class="modality-text">
+Consulta ubicada en Av. Santa María 52, Los Andes, Valparaíso.
+Un espacio tranquilo, privado y cómodo para trabajar en persona.
+</div>
+</div>
+<div class="modality reveal">
+<div class="modality-tag">Online</div>
+<div class="modality-title">Todo Chile</div>
+<div class="modality-text">
+Sesiones por videollamada para quienes prefieren la comodidad de
+atenderse desde donde estén, sin importar la ciudad.
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── QUOTE ── -->
+
+<section class="quote-section reveal">
+<p class="quote-text">
+"Lo que nos dificulta en el vivir suele tener poca nitidez en su fondo,
+pero se hace sentir con fuerza en el día a día."
+</p>
+<p class="quote-attr">Kevin L. Zamora Araya</p>
+</section>
+
+<!-- ── RESEÑAS ── -->
+
+<section class="reviews-section" id="resenas">
+<div class="reviews-header">
+<div>
+<p class="section-label reveal">Lo que dicen quienes me conocen</p>
+<h2 class="reviews-headline reveal">Palabras de <em>quienes</em><br>han pasado por aquí</h2>
+</div>
+<div class="reviews-score reveal">
+<span class="score-number">4,9</span>
+<div class="score-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<span class="score-count">79 opiniones verificadas · Google</span>
+</div>
+</div>
+
+```
+<div class="reviews-grid">
+
+<!-- Claudia -->
+<div class="review-card reveal">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">"Desde el primer momento me sentí escuchada, comprendida y acompañada en todo mi proceso. Fue un pilar fundamental para mi bienestar y crecimiento personal. Primera vez que puedo seguir un tratamiento."</p>
+<div class="review-footer">
+<div class="review-avatar">C.</div>
+<div class="review-meta">
+<span class="review-name">C.A.</span>
+<span class="review-source">Google · hace 2 semanas</span>
+</div>
+</div>
+</div>
+
+<!-- Melanie -->
+<div class="review-card reveal">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">"Es un profesional integral. Mi experiencia como madre durante el tiempo que trató a mi hija fue excelente. Ciertamente lo recomendaría con cualquier amigo o familiar."</p>
+<div class="review-footer">
+<div class="review-avatar">M.</div>
+<div class="review-meta">
+<span class="review-name">M.P.</span>
+<span class="review-source">Google · hace 2 semanas</span>
+</div>
+</div>
+</div>
+
+<!-- Rodolfo -->
+<div class="review-card reveal">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">"Se destaca su sólido criterio clínico y adecuado manejo técnico frente a la diversidad de casos. Mantiene un ejercicio profesional ético, responsable y centrado en el bienestar de los usuarios."</p>
+<div class="review-footer">
+<div class="review-avatar">R.</div>
+<div class="review-meta">
+<span class="review-name">R.F.</span>
+<span class="review-source">Google · hace 1 semana</span>
+</div>
+</div>
+</div>
+
+<!-- Ana Quiroz -->
+<div class="review-card reveal">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">"Su intervención fue fundamental en la recuperación de mi nieta — gracias a él la tengo conmigo. Su profesionalismo, buen trato y dedicación con sus pacientes fueron muy importantes en este proceso."</p>
+<div class="review-footer">
+<div class="review-avatar">A.</div>
+<div class="review-meta">
+<span class="review-name">A.Q.</span>
+<span class="review-source">Google · hace 1 semana</span>
+</div>
+</div>
+</div>
+
+<!-- Cindy -->
+<div class="review-card reveal">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">"Siempre está a disposición cuando uno lo necesita. Entrega la confianza para poder hablar con él durante la sesión. Lo recomiendo al 100%."</p>
+<div class="review-footer">
+<div class="review-avatar">C.</div>
+<div class="review-meta">
+<span class="review-name">C.R.</span>
+<span class="review-source">Google · hace 1 semana</span>
+</div>
+</div>
+</div>
+
+<!-- Rodrigo -->
+<div class="review-card reveal">
+<div class="review-stars">
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</div>
+<p class="review-text">"Gran profesional, con la cualidad de escuchar, comprender, entender y contener."</p>
+<div class="review-footer">
+<div class="review-avatar">R.</div>
+<div class="review-meta">
+<span class="review-name">R.M.</span>
+<span class="review-source">Google · hace 1 semana</span>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="reviews-cta reveal">
+<a href="https://share.google/oQxYqQ2fvt9gQEc9P" class="btn-google" target="_blank" rel="noopener">
+Ver las 79 opiniones en Google →
+</a>
+</div>
+```
+
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CONTACTO ── -->
+
+<section id="contacto">
+<p class="section-label reveal">Contacto</p>
+<div class="contact-grid">
+<div>
+<h2 class="contact-headline reveal">Dar el <em>primer paso</em> es lo más difícil</h2>
+<p class="contact-sub reveal">
+Primera sesión disponible esta semana. Escríbeme con confianza —
+respondo personalmente.
+</p>
+<div class="contact-items reveal">
+<div class="contact-item">
+<div class="contact-icon">📱</div>
+<div class="contact-detail">
+<span class="contact-label">WhatsApp</span>
+<span class="contact-value">
+<a href="https://wa.me/56984328372" target="_blank" rel="noopener">+56 9 8432 8372</a>
+</span>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">✉️</div>
+<div class="contact-detail">
+<span class="contact-label">Correo</span>
+<span class="contact-value">
+<a href="mailto:kevin.zamora@ug.uchile.cl">kevin.zamora@ug.uchile.cl</a>
+</span>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">📍</div>
+<div class="contact-detail">
+<span class="contact-label">Consulta presencial</span>
+<span class="contact-value">Av. Santa María 52, Los Andes, Valparaíso</span>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">⭐</div>
+<div class="contact-detail">
+<span class="contact-label">Google</span>
+<span class="contact-value">4,9 · 79 opiniones verificadas</span>
+</div>
+</div>
+</div>
+</div>
+
+```
+<div class="reveal">
+<div class="cta-block">
+<p>
+"Comencemos a trabajar en lo que te habita. Será un gusto acompañarte."
+</p>
+<a href="https://wa.me/56984328372?text=Hola%20Kevin%2C%20me%20gustar%C3%ADa%20agendar%20una%20primera%20sesi%C3%B3n."
+class="btn-whatsapp"
+target="_blank" rel="noopener">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.126 1.532 5.862L.054 23.077a.75.75 0 00.917.941l5.404-1.43A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.73 9.73 0 01-4.964-1.357l-.356-.212-3.694.977.992-3.606-.232-.372A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+Escribir por WhatsApp ahora
+</a>
+</div>
+</div>
+</div>
+```
+
+</section>
+
+<!-- ── FOOTER ── -->
+
+<footer>
+<span class="footer-name">Kevin L. Zamora Araya — Psicólogo Clínico & Psicoanalista</span>
+<span class="footer-note">Los Andes, Valparaíso · Chile</span>
+</footer>
+
+<script>
+// Intersection Observer para animaciones de scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry, i) => {
+if (entry.isIntersecting) {
+setTimeout(() => entry.target.classList.add('visible'), i * 60);
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
